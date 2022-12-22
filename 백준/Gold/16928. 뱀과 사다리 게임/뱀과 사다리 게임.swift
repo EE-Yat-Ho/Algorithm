@@ -68,7 +68,8 @@ while ptr < queue.count {
     
     for dice in 1...6 {
         
-        if var jumpedIdx = jump[idx + dice] {
+        var idx = idx + dice
+        if var jumpedIdx = jump[idx] {
             
             // 연속 점프 가능. 마지막 도착지점만 기록하면 됨.
             while let j = jump[jumpedIdx] {
@@ -78,17 +79,12 @@ while ptr < queue.count {
                 
                 jumpedIdx = j
             }
-            
-            if visited[jumpedIdx] == -2 { continue }
-            visited[jumpedIdx] = -2
-            
-            queue.append((jumpedIdx, count + 1))
-        } else {
-            
-            if visited[idx + dice] == -2 { continue }
-            visited[idx + dice] = -2
-            
-            queue.append((idx + dice, count + 1))
+            idx = jumpedIdx
         }
+            
+        if visited[idx] == -2 { continue }
+        visited[idx] = -2
+        
+        queue.append((idx, count + 1))
     }
 }
