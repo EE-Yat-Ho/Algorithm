@@ -1,0 +1,1 @@
+print(readLine()!.reversed().map { String($0) }.joined())
