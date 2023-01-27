@@ -1,0 +1,1 @@
+print((Int(readLine()!)! - Int(readLine()!)!) * -1)
