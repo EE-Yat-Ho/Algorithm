@@ -1,0 +1,1 @@
+print(readLine()!.split(separator: " ").map { Int($0)! }.sorted().map { "\($0)" }.joined(separator: " "))
